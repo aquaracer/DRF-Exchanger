@@ -9,4 +9,3 @@ class TransfersAdmin(admin.ModelAdmin):
 admin.site.register(Currency)
 admin.site.register(AdvUser)
 admin.site.register(Transfers, TransfersAdmin)
-# Register your models here.

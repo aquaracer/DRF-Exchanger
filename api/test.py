@@ -1,8 +1,9 @@
+import os
+
 from rest_framework import status
 import unittest
 import requests
 from .models import AdvUser
-import Exchanger.secret
 
 
 class TestBasic(unittest.TestCase):
@@ -15,7 +16,7 @@ class TestBasic(unittest.TestCase):
         self.login_url = 'http://127.0.0.1:8000/api/obtain_token/'
         self.add_user_url = 'http://127.0.0.1:8000/api/signup/'
         self.transfers_url = 'http://127.0.0.1:8000/api/'
-        self.credentials = Exchanger.secret.test_credentials
+        self.credentials = os.getenv('TEST_CREDENTIALS')
         token = self.get_json(url=self.login_url, json=self.credentials)
         self.token = token['token']
 
